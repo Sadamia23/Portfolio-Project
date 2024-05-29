@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            height: 2000px; /* Create enough space for scrolling */
+        }
+
+        .hidden-element {
+            display: none;
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            position: fixed;
+            bottom: 10px;
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally */
+            transition: opacity 0.5s ease-in-out; /* Add a smooth transition */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Scroll down to reveal the hidden element.</p>
+    </div>
+
+    <div class="hidden-element" id="elementToReveal">
+        <p>Hidden Element</p>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const elementToReveal = document.getElementById('elementToReveal');
+            if (window.scrollY > 800) {
+                elementToReveal.style.opacity = '1';
+            } else {
+                elementToReveal.style.opacity = '0';
+            }
+        });
+    </script>
+</body>
+</html>
